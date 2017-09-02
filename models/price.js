@@ -4,6 +4,9 @@ var Schema = mongoose.Schema;
 
 //create schema for prices
 var PriceSchema = new Schema({
+  coin: {
+    type: String,
+  },
   price: {
     type: String,
   },

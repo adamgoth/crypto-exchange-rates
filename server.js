@@ -15,6 +15,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
+//prevent CORS errors
+app.use(function(req, res, next) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader("Cache-Control", "no-cache");
+  next();
+});
+
 //configure connection to mongoDB (mlab)
 mongoose.connect('mongodb://admin:admin@ds123084.mlab.com:23084/crypto-api-prices');
 var db = mongoose.connection;
@@ -50,6 +58,7 @@ app.get('/api/', function(req, res) {
 //POST prices
 app.post('/api/', function(req, res){
   var price = new Price();
+  price.coin = req.body.coin;
   price.price = req.body.price;
   price.exchange = req.body.exchange;
   price.datetime = Date.now();
