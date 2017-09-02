@@ -10,6 +10,26 @@ function saveToDatabase(coin, exchange, price) {
     });
 }
 
+export function fetchSavedData() {
+  axios.get('http://localhost:3001/api')
+    .then((response) => {
+      var ETH_data = response["data"].filter((price) => { return price["coin"] == "ETH" });
+      var LTC_data = response["data"].filter((price) => { return price["coin"] == "LTC" });
+      var DASH_data = response["data"].filter((price) => { return price["coin"] == "DASH" });
+
+      this.setState({
+        eth_price_history: this.state.eth_price_history.concat(ETH_data),
+        ltc_price_history: this.state.ltc_price_history.concat(LTC_data),
+        dash_price_history: this.state.dash_price_history.concat(DASH_data)
+      });
+
+      console.log(this.state);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+}
+
 export function fetchCoincapData() {
   axios.get('http://www.coincap.io/page/ETH')
     .then((response) => {
