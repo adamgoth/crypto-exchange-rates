@@ -3,3 +3,55 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#main-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#price-containers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+}
+
+.price-container {
+  border: solid 1px black;
+  border-radius: 10px;
+  width: 18%;
+  height: 150px;
+  padding: 2%;
+  margin: 1%;
+  min-width: 200px;
+  font-size: 20px;
+}
+
+.price-header {
+  display: flex;
+  flex-direction: row;
+  height: 25%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.price-box {
+  display: flex;
+  flex-direction: row;
+  height: 25%;
+  align-items: center;
+}
+
+.exchange {
+  width: 50%;
+  text-align: left;
+}
+
+.price {
+  width: 50%;
+  text-align: right;
+}
