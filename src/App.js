@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import CoinBox from './components/CoinBox';
+
 import axios from 'axios';
 
 class App extends Component {
@@ -10,7 +12,7 @@ class App extends Component {
   fetchCoincapData() {
     axios.get('http://www.coincap.io/page/ETH')
       .then((response) => {
-        this.setState({ eth_prices: this.state.eth_prices.concat({ "exchange": "coincap", "price": response["data"]["price_btc"].toString() }) })
+        this.setState({ eth_prices: this.state.eth_prices.concat({ "exchange": "CoinCap", "price": response["data"]["price_btc"].toString() }) })
       })
       .catch((error) => {
         console.log(error);
@@ -18,7 +20,7 @@ class App extends Component {
 
     axios.get('http://www.coincap.io/page/LTC')
       .then((response) => {
-        this.setState({ ltc_prices: this.state.ltc_prices.concat({ "exchange": "coincap", "price": response["data"]["price_btc"].toString() }) })
+        this.setState({ ltc_prices: this.state.ltc_prices.concat({ "exchange": "CoinCap", "price": response["data"]["price_btc"].toString() }) })
       })
       .catch((error) => {
         console.log(error);
@@ -26,7 +28,7 @@ class App extends Component {
 
     axios.get('http://www.coincap.io/page/DASH')
       .then((response) => {
-        this.setState({ dash_prices: this.state.dash_prices.concat({ "exchange": "coincap", "price": response["data"]["price_btc"].toString() }) })
+        this.setState({ dash_prices: this.state.dash_prices.concat({ "exchange": "CoinCap", "price": response["data"]["price_btc"].toString() }) })
       })
       .catch((error) => {
         console.log(error);
@@ -37,9 +39,9 @@ class App extends Component {
     axios.get('https://poloniex.com/public?command=returnTicker')
       .then((response) => {
         this.setState({
-          eth_prices: this.state.eth_prices.concat({ "exchange": "poloniex", "price": response["data"]["BTC_ETH"]["last"] }),
-          ltc_prices: this.state.ltc_prices.concat({ "exchange": "poloniex", "price": response["data"]["BTC_LTC"]["last"] }),
-          dash_prices: this.state.dash_prices.concat({ "exchange": "poloniex", "price": response["data"]["BTC_DASH"]["last"] })
+          eth_prices: this.state.eth_prices.concat({ "exchange": "Poloniex", "price": response["data"]["BTC_ETH"]["last"] }),
+          ltc_prices: this.state.ltc_prices.concat({ "exchange": "Poloniex", "price": response["data"]["BTC_LTC"]["last"] }),
+          dash_prices: this.state.dash_prices.concat({ "exchange": "Poloniex", "price": response["data"]["BTC_DASH"]["last"] })
         })
       })
       .catch((error) => {
@@ -51,9 +53,9 @@ class App extends Component {
     axios.get('https://api.kraken.com/0/public/Ticker?pair=ETHXBT,LTCXBT,DASHXBT')
       .then((response) => {
         this.setState({
-          eth_prices: this.state.eth_prices.concat({ "exchange": "kraken", "price": response["data"]["result"]["XETHXXBT"]["c"][0] }),
-          ltc_prices: this.state.ltc_prices.concat({ "exchange": "kraken", "price": response["data"]["result"]["XLTCXXBT"]["c"][0] }),
-          dash_prices: this.state.dash_prices.concat({ "exchange": "kraken", "price": response["data"]["result"]["DASHXBT"]["c"][0] })
+          eth_prices: this.state.eth_prices.concat({ "exchange": "Kraken", "price": response["data"]["result"]["XETHXXBT"]["c"][0] }),
+          ltc_prices: this.state.ltc_prices.concat({ "exchange": "Kraken", "price": response["data"]["result"]["XLTCXXBT"]["c"][0] }),
+          dash_prices: this.state.dash_prices.concat({ "exchange": "Kraken", "price": response["data"]["result"]["DASHXBT"]["c"][0] })
         })
       })
       .catch((error) => {
@@ -86,47 +88,9 @@ class App extends Component {
   if (a["price"] > b["price"])
     return 1;
   return 0;
-}
+  }
 
   render() {
-    var ETHprices = this.state.eth_prices.sort(this.sortByPrice).map((price, i) => {
-      return (
-        <div className="flex-container price-box" key={i}>
-          <div className="exchange">
-            {price["exchange"]}
-          </div>
-          <div className="price">
-            {price["price"].substring(0, 8)}
-          </div>
-        </div>
-      );
-    });
-
-    var LTCprices = this.state.ltc_prices.sort(this.sortByPrice).map((price, i) => {
-      return (
-        <div className="flex-container price-box" key={i}>
-          <div className="exchange">
-            {price["exchange"]}
-          </div>
-          <div className="price">
-            {price["price"].substring(0, 8)}
-          </div>
-        </div>
-      );
-    })
-
-    var DASHprices = this.state.dash_prices.sort(this.sortByPrice).map((price, i) => {
-      return (
-        <div className="flex-container price-box" key={i}>
-          <div className="exchange">
-            {price["exchange"]}
-          </div>
-          <div className="price">
-            {price["price"].substring(0, 8)}
-          </div>
-        </div>
-      );
-    })
 
     return (
       <div className="App">
@@ -136,18 +100,9 @@ class App extends Component {
         </div>
         <div id="main-container" className="flex-container">
           <div id="price-containers" className="flex-container">
-            <div className="price-container">
-              <div className="flex-container price-header">Ethereum (BTC)</div>
-              {ETHprices}
-            </div>
-            <div className="price-container">
-              <div className="flex-container price-header">Litecoin (BTC)</div>
-              {LTCprices}
-            </div>
-            <div className="price-container">
-              <div className="flex-container price-header">Dash (BTC)</div>
-              {DASHprices}
-            </div>
+            <CoinBox coinData={this.state.eth_prices} title="Ethereum" />
+            <CoinBox coinData={this.state.ltc_prices} title="Litecoin" />
+            <CoinBox coinData={this.state.dash_prices} title="Dash" />
           </div>
         </div>
         {this.consoleShit()}

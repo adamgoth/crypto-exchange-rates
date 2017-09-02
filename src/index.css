@@ -16,17 +16,17 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 90%;
 }
 
 .price-container {
   border: solid 1px black;
   border-radius: 10px;
-  width: 18%;
+  width: 30%;
   height: 150px;
-  padding: 2%;
+  padding: 0.5% 2%;
   margin: 1%;
-  min-width: 200px;
+  min-width: 250px;
   font-size: 20px;
 }
 
@@ -47,11 +47,11 @@ body {
 }
 
 .exchange {
-  width: 50%;
+  width: 30%;
   text-align: left;
 }
 
 .price {
-  width: 50%;
+  width: 70%;
   text-align: right;
 }
