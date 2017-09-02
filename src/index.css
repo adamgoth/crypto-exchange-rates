@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 #main-container {
@@ -20,12 +20,9 @@ body {
 }
 
 .price-container {
-  border: solid 1px black;
-  border-radius: 10px;
   width: 30%;
   height: 150px;
-  padding: 0.5% 2%;
-  margin: 1%;
+  margin: 2%;
   min-width: 250px;
   font-size: 20px;
 }
@@ -37,6 +34,8 @@ body {
   text-align: center;
   justify-content: center;
   align-items: center;
+  background-color: #F0F8FF;
+  padding: 0.5% 2%;
 }
 
 .price-box {
@@ -44,6 +43,7 @@ body {
   flex-direction: row;
   height: 25%;
   align-items: center;
+  padding: 0.5% 2%;
 }
 
 .exchange {

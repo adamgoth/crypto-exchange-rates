@@ -78,18 +78,6 @@ class App extends Component {
     this.fetchKrakenData()
   }
 
-  consoleShit() {
-    console.log(this.state);
-  }
-
-  sortByPrice(a,b) {
-  if (a["price"] < b["price"])
-    return -1;
-  if (a["price"] > b["price"])
-    return 1;
-  return 0;
-  }
-
   render() {
 
     return (
@@ -105,7 +93,6 @@ class App extends Component {
             <CoinBox coinData={this.state.dash_prices} title="Dash" />
           </div>
         </div>
-        {this.consoleShit()}
       </div>
 
     );
