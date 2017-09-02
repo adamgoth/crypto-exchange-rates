@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import CoinBox from './components/CoinBox';
-
-import axios from 'axios';
-
 import { fetchCoincapData, fetchPoloniexData, fetchKrakenData } from './utils/DataService';
 
 class App extends Component {
