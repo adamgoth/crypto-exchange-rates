@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import CoinBox from './CoinBox';
 
@@ -14,7 +14,7 @@ describe('Component: CoinBox', () => {
   });
 
   it('renders price-box if coin data exists', () => {
-    const wrapper = mount(<CoinBox coinData={mockData} />);
+    const wrapper = shallow(<CoinBox coinData={mockData} />);
 
     expect(wrapper.find('.price-box').exists()).toBe(true);
     expect(wrapper.find('.exchange').exists()).toBe(true);
@@ -22,7 +22,7 @@ describe('Component: CoinBox', () => {
   });
 
   it('has a title if coin data exists', () => {
-    const wrapper = mount(<CoinBox coinData={mockData} title={mockTitle} />);
+    const wrapper = shallow(<CoinBox coinData={mockData} title={mockTitle} />);
 
     expect(wrapper.find('.price-header').exists()).toBe(true);
     expect(wrapper.find('.price-header').text()).toEqual(mockTitle);

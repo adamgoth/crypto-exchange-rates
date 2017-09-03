@@ -22,7 +22,7 @@ const HistoryBox = ({ priceHistory, title }) => {
             {price["price"].substring(0, 8) + " BTC"}
           </div>
           <div className="history-date">
-            {price["datetime"].substring(0,10)}, {price["datetime"].substring(11,19)}
+            {price["datetime"].substring(0,10)} {price["datetime"].substring(11,19)}
           </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import HistoryBox from './HistoryBox';
 
@@ -14,7 +14,7 @@ describe('Component: HistoryBox', () => {
   });
 
   it('renders history-box if price history exists', () => {
-    const wrapper = mount(<HistoryBox priceHistory={mockData} />);
+    const wrapper = shallow(<HistoryBox priceHistory={mockData} />);
 
     expect(wrapper.find('.history-box').exists()).toBe(true);
     expect(wrapper.find('.history-exchange').exists()).toBe(true);
@@ -23,7 +23,7 @@ describe('Component: HistoryBox', () => {
   });
 
   it('has a title if coin data exists', () => {
-    const wrapper = mount(<HistoryBox priceHistory={mockData} title={mockTitle} />);
+    const wrapper = shallow(<HistoryBox priceHistory={mockData} title={mockTitle} />);
 
     expect(wrapper.find('.history-header').exists()).toBe(true);
     expect(wrapper.find('.history-header').text()).toEqual(mockTitle);

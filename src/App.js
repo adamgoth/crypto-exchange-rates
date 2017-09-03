@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import CoinBox from './components/CoinBox';
-import HistoryBox from './components/HistoryBox';
+import CurrentPrices from './components/CurrentPrices';
+import PriceHistory from './components/PriceHistory';
 import { fetchCoincapData, fetchPoloniexData, fetchKrakenData, fetchSavedData } from './utils/DataService';
 
 class App extends Component {
@@ -35,18 +35,16 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div id="main-container" className="flex-container">
-          <div className="section-header">Current Exchange Rates</div>
-          <div className="price-containers flex-container">
-            <CoinBox coinData={this.state.eth_current_prices} title="Ethereum" />
-            <CoinBox coinData={this.state.ltc_current_prices} title="Litecoin" />
-            <CoinBox coinData={this.state.dash_current_prices} title="Dash" />
-          </div>
-          <div className="section-header">Recorded Exchange Lows</div>
-          <div className="price-containers flex-container">
-            <HistoryBox priceHistory={this.state.eth_price_history} title="Ethereum" />
-            <HistoryBox priceHistory={this.state.ltc_price_history} title="Litecoin" />
-            <HistoryBox priceHistory={this.state.dash_price_history} title="Dash" />
-          </div>
+          <CurrentPrices
+            eth={this.state.eth_current_prices}
+            ltc={this.state.ltc_current_prices}
+            dash={this.state.dash_current_prices}
+            />
+          <PriceHistory
+            eth={this.state.eth_price_history}
+            ltc={this.state.ltc_price_history}
+            dash={this.state.dash_price_history}
+            />
         </div>
       </div>
     );

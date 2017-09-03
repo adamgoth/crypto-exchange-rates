@@ -13,6 +13,13 @@ body {
   padding: 3% 0;
 }
 
+.section-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
 .section-header {
   font-size: 36px;
   font-weight: bold;
@@ -41,7 +48,7 @@ body {
   height: 460px;
   margin: 2%;
   min-width: 250px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .price-header {
