@@ -10,14 +10,17 @@ class App extends Component {
     super(props);
 
     this.state = {
-      eth_prices: [],
-      ltc_prices: [],
-      dash_prices: [],
+      eth_current_prices: [],
+      ltc_current_prices: [],
+      dash_current_prices: [],
       eth_price_history: [],
       ltc_price_history: [],
       dash_price_history: []
     };
+  }
 
+  componentWillMount() {
+    //fetch live price data and database data
     fetchCoincapData.call(this);
     fetchPoloniexData.call(this);
     fetchKrakenData.call(this);
@@ -32,15 +35,17 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <div id="main-container" className="flex-container">
-          <div id="price-containers" className="flex-container">
-            <CoinBox coinData={this.state.eth_prices} title="Ethereum" />
-            <CoinBox coinData={this.state.ltc_prices} title="Litecoin" />
-            <CoinBox coinData={this.state.dash_prices} title="Dash" />
+          <div className="section-header">Current Exchange Rates</div>
+          <div className="price-containers flex-container">
+            <CoinBox coinData={this.state.eth_current_prices} title="Ethereum" />
+            <CoinBox coinData={this.state.ltc_current_prices} title="Litecoin" />
+            <CoinBox coinData={this.state.dash_current_prices} title="Dash" />
           </div>
-          <div id="history-containers" className="flex-container">
-            <HistoryBox priceHistory={this.state.eth_price_history} title="Ethereum Lows" />
-            <HistoryBox priceHistory={this.state.ltc_price_history} title="Litecoin Lows" />
-            <HistoryBox priceHistory={this.state.dash_price_history} title="Dash Lows" />
+          <div className="section-header">Recorded Exchange Lows</div>
+          <div className="price-containers flex-container">
+            <HistoryBox priceHistory={this.state.eth_price_history} title="Ethereum" />
+            <HistoryBox priceHistory={this.state.ltc_price_history} title="Litecoin" />
+            <HistoryBox priceHistory={this.state.dash_price_history} title="Dash" />
           </div>
         </div>
       </div>
