@@ -1,10 +1,10 @@
 # Crypto Exchange Price Comparisons (Ethereum, Litecoin, Dash)
 
 To get started:
-* Clone Repo
+* Clone repo
 * From project directory, run `npm install`
 * Run `npm start` to start client
-* In another terminal tab, run `node server` to start backend
+* In another terminal tab, run `node server` to start express API backend (price history section will not work without this running)
 
 The top section displays current exchange prices for Ethereum, Litecoin, and Dash
 

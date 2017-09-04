@@ -19,7 +19,7 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     //fetch live price data and database data
     fetchCoincapData.call(this);
     fetchPoloniexData.call(this);
