@@ -18,12 +18,12 @@ body {
   flex-direction: column;
   width: 100%;
   align-items: center;
+  padding: 10px;
 }
 
 .section-header {
   font-size: 36px;
   font-weight: bold;
-  padding-top: 1%;
 }
 
 .price-containers {
@@ -32,13 +32,12 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 90%;
-  margin-bottom: 2%;
 }
 
 .price-container {
   width: 30%;
   height: 140px;
-  margin: 2%;
+  margin: 20px;
   min-width: 250px;
   font-size: 16px;
 }
@@ -46,7 +45,7 @@ body {
 .history-container {
   width: 30%;
   height: 460px;
-  margin: 2%;
+  margin: 20px;
   min-width: 250px;
   font-size: 13.5px;
 }
@@ -59,7 +58,6 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #F0F8FF;
-  padding: 0.5% 2%;
   font-size: 18px;
   font-weight: bold;
 }
@@ -72,7 +70,6 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #F0F8FF;
-  padding: 0.5% 2%;
   font-size: 18px;
   font-weight: bold;
 }
@@ -82,7 +79,7 @@ body {
   flex-direction: row;
   height: 25%;
   align-items: center;
-  padding: 0.5% 2%;
+  padding: 1px 10px;
 }
 
 .history-box {
@@ -90,7 +87,7 @@ body {
   flex-direction: row;
   height: 35px;
   align-items: center;
-  padding: 0.5% 2%;
+  padding: 0 10px;
 }
 
 .price-box:nth-child(even),
