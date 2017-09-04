@@ -1,5 +1,7 @@
 # Crypto Exchange Price Comparisons (Ethereum, Litecoin, Dash)
 
+![](https://i.gyazo.com/53051fa4182cab35501160595ce85922.png)
+
 To get started:
 * Clone repo
 * From project directory, run `npm install`
