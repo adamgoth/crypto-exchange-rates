@@ -16,9 +16,9 @@ class PriceHistory extends Component {
   componentDidMount() {
     fetchSavedData()
       .then(response => {
-        var ethData = response["data"].filter((price) => { return price["coin"] == "ETH" });
-        var ltcData = response["data"].filter((price) => { return price["coin"] == "LTC" });
-        var dashData = response["data"].filter((price) => { return price["coin"] == "DASH" });
+        var ethData = response["data"].filter((price) => { return price["coin"] === "ETH" });
+        var ltcData = response["data"].filter((price) => { return price["coin"] === "LTC" });
+        var dashData = response["data"].filter((price) => { return price["coin"] === "DASH" });
 
         this.setState({
           ethPriceHistory: this.state.ethPriceHistory.concat(ethData),
