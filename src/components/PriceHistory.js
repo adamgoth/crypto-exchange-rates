@@ -7,23 +7,23 @@ class PriceHistory extends Component {
     super(props);
 
     this.state = {
-      eth_price_history: [],
-      ltc_price_history: [],
-      dash_price_history: []
+      ethPriceHistory: [],
+      ltcPriceHistory: [],
+      dashPriceHistory: []
     }
   }
 
   componentDidMount() {
     fetchSavedData()
       .then(response => {
-        var ETH_data = response["data"].filter((price) => { return price["coin"] == "ETH" });
-        var LTC_data = response["data"].filter((price) => { return price["coin"] == "LTC" });
-        var DASH_data = response["data"].filter((price) => { return price["coin"] == "DASH" });
+        var ethData = response["data"].filter((price) => { return price["coin"] == "ETH" });
+        var ltcData = response["data"].filter((price) => { return price["coin"] == "LTC" });
+        var dashData = response["data"].filter((price) => { return price["coin"] == "DASH" });
 
         this.setState({
-          eth_price_history: this.state.eth_price_history.concat(ETH_data),
-          ltc_price_history: this.state.ltc_price_history.concat(LTC_data),
-          dash_price_history: this.state.dash_price_history.concat(DASH_data)
+          ethPriceHistory: this.state.ethPriceHistory.concat(ethData),
+          ltcPriceHistory: this.state.ltcPriceHistory.concat(ltcData),
+          dashPriceHistory: this.state.dashPriceHistory.concat(dashData)
         });
       })
   }
@@ -33,9 +33,9 @@ class PriceHistory extends Component {
       <div className="section-container flex-container">
         <div className="section-header">Top 10 Recorded Exchange Lows</div>
         <div className="price-containers flex-container">
-          <HistoryBox priceHistory={this.state.eth_price_history} title="Ethereum" />
-          <HistoryBox priceHistory={this.state.ltc_price_history} title="Litecoin" />
-          <HistoryBox priceHistory={this.state.dash_price_history} title="Dash" />
+          <HistoryBox priceHistory={this.state.ethPriceHistory} title="Ethereum" />
+          <HistoryBox priceHistory={this.state.ltcPriceHistory} title="Litecoin" />
+          <HistoryBox priceHistory={this.state.dashPriceHistory} title="Dash" />
         </div>
       </div>
     );
