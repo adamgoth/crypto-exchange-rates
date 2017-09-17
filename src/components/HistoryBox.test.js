@@ -16,10 +16,7 @@ describe('Component: HistoryBox', () => {
   it('renders history-box if price history exists', () => {
     const wrapper = shallow(<HistoryBox priceHistory={mockData} />);
 
-    expect(wrapper.find('.history-box').exists()).toBe(true);
-    expect(wrapper.find('.history-exchange').exists()).toBe(true);
-    expect(wrapper.find('.history-price').exists()).toBe(true);
-    expect(wrapper.find('.history-date').exists()).toBe(true);
+    expect(wrapper.find('.history-container').exists()).toBe(true);
   });
 
   it('has a title if coin data exists', () => {

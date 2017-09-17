@@ -1,4 +1,5 @@
 import React from 'react';
+import HistoryBoxRow from './HistoryBoxRow';
 
 const HistoryBox = ({ priceHistory, title }) => {
 
@@ -13,19 +14,7 @@ const HistoryBox = ({ priceHistory, title }) => {
 
   //takes 10 lowest prices from price history array and maps to a component
   var data = priceHistory.sort(sortByPrice).slice(0, 10).map((price, i) => {
-    return (
-        <div className="flex-container history-box" key={i}>
-          <div className="history-exchange">
-            {price["exchange"]}
-          </div>
-          <div className="history-price">
-            {price["price"].substring(0, 8) + " BTC"}
-          </div>
-          <div className="history-date">
-            {price["datetime"].substring(0,10)} {price["datetime"].substring(11,19)}
-          </div>
-        </div>
-    );
+    return <HistoryBoxRow exchange={price["exchange"]} price={price["price"]} datetime={price["datetime"]} key={i} />;
   });
 
   //if no data, return loading div
@@ -35,7 +24,7 @@ const HistoryBox = ({ priceHistory, title }) => {
         <div className="history-header">{title}</div>
         {data}
       </div>
-    )
+    );
   } else {
     return <div>Loading...</div>;
   }

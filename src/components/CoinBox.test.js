@@ -16,9 +16,7 @@ describe('Component: CoinBox', () => {
   it('renders price-box if coin data exists', () => {
     const wrapper = shallow(<CoinBox coinData={mockData} />);
 
-    expect(wrapper.find('.price-box').exists()).toBe(true);
-    expect(wrapper.find('.exchange').exists()).toBe(true);
-    expect(wrapper.find('.price').exists()).toBe(true);
+    expect(wrapper.find('.price-container').exists()).toBe(true);
   });
 
   it('has a title if coin data exists', () => {

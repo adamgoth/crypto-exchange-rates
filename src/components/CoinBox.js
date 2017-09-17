@@ -1,4 +1,5 @@
 import React from 'react';
+import CoinBoxRow from './CoinBoxRow';
 
 const CoinBox = ({ coinData, title }) => {
 
@@ -13,16 +14,7 @@ const CoinBox = ({ coinData, title }) => {
 
   //sorts array of current price data lowest to highest and maps to a component
   var data = coinData.sort(sortByPrice).map((price, i) => {
-    return (
-        <div className="flex-container price-box" key={i}>
-          <div className="exchange">
-            {i+1}. {price["exchange"]}
-          </div>
-          <div className="price">
-            {price["price"].substring(0, 8) + " BTC"}
-          </div>
-        </div>
-    );
+    return <CoinBoxRow exchange={price["exchange"]} price={price["price"]} row={i+1} key={i} />;
   });
 
 
@@ -33,7 +25,7 @@ const CoinBox = ({ coinData, title }) => {
         <div className="price-header">{title}</div>
         {data}
       </div>
-    )
+    );
   } else {
     return <div>Loading...</div>;
   }
