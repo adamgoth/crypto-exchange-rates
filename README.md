@@ -1,6 +1,6 @@
 # Crypto Exchange Price Comparisons (Ethereum, Litecoin, Dash)
 
-![](https://i.gyazo.com/53051fa4182cab35501160595ce85922.png)
+![](https://i.gyazo.com/399bb3ecc9284ec513a3bf704e7d63b9.png)
 
 To get started:
 * Clone repo
