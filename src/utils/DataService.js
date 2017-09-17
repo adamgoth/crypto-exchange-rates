@@ -32,7 +32,7 @@ export function fetchKrakenData() {
 export function saveToDatabase(coin, exchange, price) {
   axios.post('http://localhost:3001/api', {coin, exchange, price})
     .then((response) => {
-      console.log(response);
+      console.log("Price saved to database");
     })
     .catch((error) => {
       console.log(error);
