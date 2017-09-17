@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
 import CurrentPrices from './components/CurrentPrices';
 import PriceHistory from './components/PriceHistory';
 
