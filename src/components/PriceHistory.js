@@ -26,6 +26,9 @@ class PriceHistory extends Component {
           dashPriceHistory: this.state.dashPriceHistory.concat(dashData)
         });
       })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {

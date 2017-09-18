@@ -31,6 +31,9 @@ class CurrentPrices extends Component {
         saveToDatabase("ETH", "Poloniex", response["data"]["BTC_ETH"]["last"]);
         saveToDatabase("LTC", "Poloniex", response["data"]["BTC_LTC"]["last"]);
         saveToDatabase("DASH", "Poloniex", response["data"]["BTC_DASH"]["last"]);
+      })
+      .catch((error) => {
+        console.log(error);
       });
     fetchKrakenData()
       .then(response => {
@@ -42,21 +45,33 @@ class CurrentPrices extends Component {
         saveToDatabase("ETH", "Kraken", response["data"]["result"]["XETHXXBT"]["c"][0]);
         saveToDatabase("LTC", "Kraken", response["data"]["result"]["XLTCXXBT"]["c"][0]);
         saveToDatabase("DASH", "Kraken", response["data"]["result"]["DASHXBT"]["c"][0]);
+      })
+      .catch((error) => {
+        console.log(error);
       });
     fetchCoincapETHData()
       .then(response => {
         this.setState({ ethCurrentPrices: this.state.ethCurrentPrices.concat({ "exchange": "CoinCap", "price": response["data"]["price_btc"].toString() }) });
         saveToDatabase("ETH", "CoinCap", response["data"]["price_btc"].toString());
+      })
+      .catch((error) => {
+        console.log(error);
       });
     fetchCoincapLTCData()
       .then(response => {
         this.setState({ ltcCurrentPrices: this.state.ltcCurrentPrices.concat({ "exchange": "CoinCap", "price": response["data"]["price_btc"].toString() }) });
         saveToDatabase("LTC", "CoinCap", response["data"]["price_btc"].toString());
+      })
+      .catch((error) => {
+        console.log(error);
       });
     fetchCoincapDASHData()
       .then(response => {
         this.setState({ dashCurrentPrices: this.state.dashCurrentPrices.concat({ "exchange": "CoinCap", "price": response["data"]["price_btc"].toString() }) });
         saveToDatabase("DASH", "CoinCap", response["data"]["price_btc"].toString());
+      })
+      .catch((error) => {
+        console.log(error);
       });
   }
 
